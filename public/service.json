@@ -1,0 +1,44 @@
+[
+    {
+        "service_id": "04",
+        "title": "Dinner Delivery Service",
+        "img": "https://i.postimg.cc/x1qvccPt/dinner.jpg",
+        "price": "200.00",
+        "description": "FoodRun is a Dinner delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    },
+    {
+        "service_id": "05",
+        "title": "Catering Service",
+        "img": "https://i.postimg.cc/15yhhZK9/catering.jpg",
+        "price": "150.00",
+        "description": "FoodRun is a Catering delivery service company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    },
+    {
+        "service_id": "01",
+        "title": "Grocery Delivery Service",
+        "img": "https://i.postimg.cc/vHGLdGSH/grocery.jpg",
+        "price": "150.00",
+        "description": "FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    },
+    {
+        "service_id": "02",
+        "title": "Parcel Deliver Service",
+        "img": "https://i.postimg.cc/kGHb8d9L/parcel.jpg",
+        "price": "175.00",
+        "description": "FoodRun is a Parcel delivery service company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    },
+    {
+        "service_id": "03",
+        "title": "Breakfast Delivery Service",
+        "img": "https://i.postimg.cc/DwR3NpyF/avocado-breads.jpg",
+        "price": "190.00",
+        "description": "FoodRun is a Breakfast delivery service company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    },
+    {
+        "service_id": "06",
+        "title": "Snacks Delivery Service",
+        "img": "https://i.postimg.cc/vZnGGwKD/snacks.jpg",
+        "price": "145.00",
+        "description": "FoodRun is a Snacks delivery service company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour.FoodRun is a grocery delivery company that partners with several national and regional grocery stores to provide customers shopping options from their homes. FoodRun users can build shopping lists on the company’s web platform and choose delivery times that suit them best, with the option to have groceries delivered in an hour."
+    }
+]

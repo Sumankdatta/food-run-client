@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import './Success.css'
-import success from '../../assets/success.jpg'
+import './View.css'
+import success from '../../../assets/success.jpg'
 import ScrollTrigger from 'react-scroll-trigger';
 import CountUp from 'react-countup';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUsers, faTruckFast, faAward } from '@fortawesome/free-solid-svg-icons'
 
-const Success = () => {
+
+const View = () => {
     const [count, setCount] = useState(false)
     return (
         <div className='tom'
@@ -47,4 +48,4 @@ const Success = () => {
     );
 };
 
-export default Success;
+export default View;

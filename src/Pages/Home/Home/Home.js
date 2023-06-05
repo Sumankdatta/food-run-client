@@ -1,14 +1,17 @@
 import React from 'react';
 import Slider from '../Slider/Slider';
-import Success from '../../Success/Success';
-import Contact from '../../Contact/Contact';
+import Contact from '../Contact/Contact';
+import View from '../View/View';
+import HomeServices from '../HomeServices/HomeServices';
 
 const Home = () => {
     return (
         <div>
             <Slider></Slider>
+            <HomeServices></HomeServices>
             <Contact></Contact>
-            <Success></Success>
+            <View></View>
+
         </div>
     );
 };

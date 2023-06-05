@@ -1,25 +1,58 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { AuthContext } from '../../context/AuthProvider';
+import { toast } from 'react-hot-toast';
+import userPhoto from '../../assets/user.png'
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                toast.success('logout successfully')
+            })
+            .catch(error => console.error(error))
+    }
 
     const menuItems = <>
-        <li><Link>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><Link to='/services'>Services</Link></li>
-        <li><Link>Blog</Link></li>
-        <li><Link>Add services</Link></li>
-        <li><Link>My Reviews</Link></li>
-        <li><Link to='login'>Log in</Link></li>
-        <li><Link to='signup'>Sign Up</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
+
+        {
+            user?.uid ?
+                <>
+                    <li><Link to='/addService'>Add services</Link></li>
+                    <li><Link to={`/myReview/${user?.uid}`}>My Reviews</Link></li>
+                    <li><Link><button onClick={handleLogout}>Log Out</button></Link></li>
+                    {
+                        user?.photoURL ? <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="" /> : <img className='w-12 h-12' src={userPhoto} alt="" />
+                    }
+
+                </>
+
+                :
+                <>
+                    <li><Link to='login'>Log in</Link></li>
+                    <li><Link to='signup'>Sign Up</Link></li>
+                    <img className='lg:w-12 h-12' src={userPhoto} alt="" />
+
+                </>
+        }
 
     </>
 
     return (
         <div>
-            <div className="text-center bg-black">
-                <h1 className='text-white font-bold'> 🎉 ,hellow</h1>
-            </div>
+            {
+                user?.uid ?
+                    <div className="text-center bg-black">
+                        <h1 className='text-white font-bold py-1'> Hello, {user?.displayName}</h1>
+                    </div>
+                    : ''
+            }
             <div className="navbar bg-accent">
                 <div className="navbar-start">
                     <div className="dropdown">
