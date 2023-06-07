@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useTitle from '../../Shared/Hooks/useTitle';
 
 const AddService = () => {
     const navigate = useNavigate()
     const { logOut } = useContext(AuthContext)
+    useTitle('Add Service')
 
     const handleAddProduct = (event) => {
         event.preventDefault()
@@ -23,7 +25,7 @@ const AddService = () => {
             price
         }
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://food-run-server-sumankdatta.vercel.app/addService', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -53,7 +55,7 @@ const AddService = () => {
             <h2 className='text-center text-4xl font-semibold text-orange-600 mt-16'>Add Product</h2>
             <form onSubmit={handleAddProduct}>
                 <div className="hero">
-                    <div className="card  w-2/4 mt-20 shadow-2xl bg-base-100">
+                    <div className="card  lg:w-2/4 w-full mt-20 shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">

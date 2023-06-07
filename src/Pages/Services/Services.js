@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleService from '../SingleService/SingleService';
+import useTitle from '../../Shared/Hooks/useTitle';
 
 const Services = () => {
     const services = useLoaderData()
+    useTitle('Services')
 
     if (!services) {
         return <p className='text-red-600 font-bold text-xl text-center mt-20'>Loading ......</p>

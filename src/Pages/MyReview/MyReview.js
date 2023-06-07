@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useTitle from '../../Shared/Hooks/useTitle';
 
 const MyReview = () => {
     const data = useLoaderData()
     const [reviews, setReviews] = useState(data)
     const { logOut } = useContext(AuthContext)
     const navigate = useNavigate()
+    useTitle('MyReview')
 
     if (!data) {
         return <p className='text-red-600 font-bold text-xl text-center mt-20'>Loading ....</p>
@@ -18,7 +20,7 @@ const MyReview = () => {
     const handleDelete = (id) => {
         const agree = window.confirm('Are you want to Delete ?')
         if (agree) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://food-run-server-sumankdatta.vercel.app/review/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('foodRun-token')}`

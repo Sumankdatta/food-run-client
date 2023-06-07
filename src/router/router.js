@@ -51,25 +51,25 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 loader: () => {
-                    const services = fetch('http://localhost:5000/services')
+                    const services = fetch('https://food-run-server-sumankdatta.vercel.app/services')
                     return services
                 },
                 element: <Services></Services>
             },
             {
                 path: '/service/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+                loader: ({ params }) => fetch(`https://food-run-server-sumankdatta.vercel.app/service/${params.id}`),
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
 
             },
             {
                 path: '/myReview/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/review/${params.id}`),
+                loader: ({ params }) => fetch(`https://food-run-server-sumankdatta.vercel.app/review/${params.id}`),
                 element: <MyReview></MyReview>
             },
             {
                 path: '/update/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`),
+                loader: ({ params }) => fetch(`https://food-run-server-sumankdatta.vercel.app/update/${params.id}`),
                 element: <UpdateReview></UpdateReview>
             }
         ]

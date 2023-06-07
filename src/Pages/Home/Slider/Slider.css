@@ -1,0 +1,16 @@
+.slider {
+
+
+    padding: 40px;
+    background-color: rgba(221, 221, 221, 0.395);
+    border-radius: 15px;
+    transition: .6s all;
+
+}
+
+.slider:hover {
+
+    color: #ffff;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}

@@ -18,7 +18,7 @@ const UpdateReview = () => {
             message
         }
 
-        fetch(`http://localhost:5000/update/${data._id}`, {
+        fetch(`https://food-run-server-sumankdatta.vercel.app/update/${data._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

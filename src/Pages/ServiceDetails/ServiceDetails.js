@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import SingleReview from '../SingleReview/SingleReview';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../Shared/Hooks/useTitle';
 
 const ServiceDetails = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -10,8 +11,8 @@ const ServiceDetails = () => {
     const { service, review } = data;
     const [serviceReview, setServiceReview] = useState(review)
     const navigate = useNavigate()
+    useTitle('Reviews')
 
-    console.log(review)
     if (!data) {
         return <h1 className='text-3xl text-center text-red-600'>loading .....</h1>
     }
@@ -19,6 +20,7 @@ const ServiceDetails = () => {
     const handleReviewAdd = (event) => {
         event.preventDefault()
         const message = event.target.message.value;
+
 
         const userReview = {
             serviceId: service._id,
@@ -28,9 +30,12 @@ const ServiceDetails = () => {
                 user?.displayName : user?.email,
             userPhoto: user?.photoURL ?
                 user?.photoURL : 'https://i.postimg.cc/mg2B8vCc/user.png',
-            message: message
+            message: message,
+
+
         }
-        fetch('http://localhost:5000/review', {
+
+        fetch('https://food-run-server-sumankdatta.vercel.app/review', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,7 +44,7 @@ const ServiceDetails = () => {
             body: JSON.stringify(userReview)
         })
             .then(res => {
-                if (res.status === 401) {
+                if (res.status === 401 || res.status === 403) {
                     logOut()
                     navigate('/login')
                 }
@@ -47,9 +52,12 @@ const ServiceDetails = () => {
             })
             .then(data => {
                 console.log(data)
-                setServiceReview([userReview, ...serviceReview])
-                toast.success('Review add successfully')
-                event.target.reset()
+                if (data.acknowledged) {
+                    setServiceReview([userReview, ...serviceReview])
+                    toast.success('Review add successfully')
+                    event.target.reset()
+                }
+
             })
     }
     return (

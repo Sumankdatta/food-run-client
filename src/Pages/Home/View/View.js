@@ -10,7 +10,7 @@ import { faUsers, faTruckFast, faAward } from '@fortawesome/free-solid-svg-icons
 const View = () => {
     const [count, setCount] = useState(false)
     return (
-        <div className='tom'
+        <div className=''
             style={{
                 background: (`url(${success})`),
                 backgroundSize: 'cover',
@@ -22,7 +22,7 @@ const View = () => {
             }}>
 
             <div className='success'>
-                <h1 className='lg:text-6xl text-4xl ms-24 text-white absolute lg:mt-24 mt-8 lg:ms-96'>PEOPLE LOVES US</h1>
+                <h1 className='lg:text-6xl md:text-3xl text-2xl text-center text-white absolute lg:mt-24 mt-8 lg:ms-48 ms-12'>People connected to services</h1>
                 <ScrollTrigger onEnter={() => setCount(true)} onExit={() => setCount(false)}>
                     <div className='lg:flex  text-white items-center  justify-evenly mainBox '>
                         <div className='box' >

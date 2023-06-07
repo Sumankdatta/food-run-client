@@ -16,36 +16,37 @@ const Header = () => {
             .catch(error => console.error(error))
     }
 
-    const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/services'>Services</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
+    const menuItems =
+        <>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/services'>Services</Link></li>
+            <li><Link to="/blog">Blog</Link></li>
 
-        {
-            user?.uid ?
-                <>
-                    <li><Link to='/addService'>Add services</Link></li>
-                    <li><Link to={`/myReview/${user?.uid}`}>My Reviews</Link></li>
-                    <li><Link><button onClick={handleLogout}>Log Out</button></Link></li>
-                    {
-                        user?.photoURL ? <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="" /> : <img className='w-12 h-12' src={userPhoto} alt="" />
-                    }
+            {
+                user?.uid ?
+                    <>
+                        <li><Link to='/addService'>Add services</Link></li>
+                        <li><Link to={`/myReview/${user?.uid}`}>My Reviews</Link></li>
+                        <li><Link><button onClick={handleLogout}>Log Out</button></Link></li>
+                        {
+                            user?.photoURL ? <img className='w-12 h-12 rounded-full' src={user?.photoURL} alt="" /> : <img className='w-12 h-12' src={userPhoto} alt="" />
+                        }
 
-                </>
+                    </>
 
-                :
-                <>
-                    <li><Link to='login'>Log in</Link></li>
-                    <li><Link to='signup'>Sign Up</Link></li>
-                    <img className='lg:w-12 h-12' src={userPhoto} alt="" />
+                    :
+                    <>
+                        <li><Link to='login'>Log in</Link></li>
+                        <li><Link to='signup'>Sign Up</Link></li>
+                        <img className='w-12 h-12' src={userPhoto} alt="" />
 
-                </>
-        }
+                    </>
+            }
 
-    </>
+        </>
 
     return (
-        <div>
+        <div className='sticky top-0 z-40'>
             {
                 user?.uid ?
                     <div className="text-center bg-black">

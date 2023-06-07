@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import google from '../../assets/google-icon.png'
 import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../Shared/Hooks/useTitle';
 
 
 const Signup = () => {
@@ -14,6 +15,7 @@ const Signup = () => {
     const [accept, setAccept] = useState(false)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    useTitle('Sign up')
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -27,6 +29,7 @@ const Signup = () => {
         const password = form.password.value;
         console.log(name, url, email, password)
         setError('')
+
 
         createUser(email, password)
             .then(result => {

@@ -4,6 +4,7 @@ import login from '../../assets/login.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../Shared/Hooks/useTitle';
 const Login = () => {
     const { icon, textOrPassword } = useShowPassword()
     const { userLogin } = useContext(AuthContext)
@@ -11,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-
+    useTitle('Login')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -19,6 +20,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
         setError('')
         userLogin(email, password)
             .then(result => {
@@ -30,7 +32,7 @@ const Login = () => {
                 console.log(currentUser)
 
                 // get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://food-run-server-sumankdatta.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

@@ -7,7 +7,7 @@ const HomeServices = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/threeservices')
+        fetch('https://food-run-server-sumankdatta.vercel.app/threeservices')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -16,7 +16,7 @@ const HomeServices = () => {
         return <p>Loading....</p>
     }
     return (
-        <div className='bg-teal-50'>
+        <div className='bg-teal-50 lg:mt-32 mt-48'>
             <h1 className='text-5xl font-bold py-5 text-orange-400 text-center'>Our Services</h1>
             <p className='text-center text-2xl text-teal-600 font-bold'>We Provide Different Type of Services</p>
             <div className='lg:grid grid-cols-3 mt-10 me-10 ms-10'>
