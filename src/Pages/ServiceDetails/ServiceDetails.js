@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import SingleReview from '../SingleReview/SingleReview';
@@ -13,9 +13,9 @@ const ServiceDetails = () => {
     const navigate = useNavigate()
     useTitle('Reviews')
 
-    if (!data) {
-        return <h1 className='text-3xl text-center text-red-600'>loading .....</h1>
-    }
+    // if (!data) {
+    //     return <h1 className='text-3xl text-center text-red-600'>loading .....</h1>
+    // }
 
     const handleReviewAdd = (event) => {
         event.preventDefault()
@@ -72,20 +72,25 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <h1 className='text-5xl text-orange-600 font-bold mt-10 ms-32' style={{ fontFamily: 'serif' }}>Reviews</h1>
-                <p className='border-b-2 w-3/4 ms-16 mt-5 border-orange-600'></p>
-                <p className='text-3xl text-teal-700 mt-5 font-bold ms-16'>Please Add Your Valuable Review</p>
+                <h1 className='text-5xl text-orange-600 font-bold mt-10 ms-24' style={{ fontFamily: 'serif' }}>Reviews</h1>
+                <p className='border-b-2 w-3/4 lg:ms-16 ms-8 mt-5 border-orange-600'></p>
+                <p className='text-3xl text-teal-700 mt-5 font-bold lg:ms-16 ms-8'>Please Add Your Valuable Review</p>
 
                 <div className='mt-10'>
-                    <form onSubmit={handleReviewAdd}>
-                        <textarea name='message' className="textarea w-4/5 text-xl bg-teal-50 ms-16 textarea-primary" placeholder="Your reviews" required></textarea><br />
-                        <button className="btn w-32 ms-16 mt-5 font-bold btn-warning">Submit</button>
-                    </form>
+                    {
+                        user?.uid ?
+                            <form onSubmit={handleReviewAdd}>
+                                <textarea name='message' className="textarea w-4/5 text-xl bg-teal-50 lg:ms-16 ms-8 textarea-primary" placeholder="Your reviews" required></textarea><br />
+                                <button className="btn w-32 lg:ms-16 ms-8 mt-5 font-bold btn-warning">Submit</button>
+                            </form>
+                            :
+                            <p className='text-2xl font-bold text-orange-600 lg:ms-16 ms-8'>Want to give a Review please<Link to='/login'><button className='btn btn-warning w-32 ms-2 text-xl font-bold'> Login</button></Link></p>
+                    }
                 </div>
 
                 <div className='mb-5'>
-                    <h1 className='text-3xl text-orange-600 mt-10 font-bold ms-16'>All Reviews About The Service</h1>
-                    <p className='border-b-2 w-3/4 ms-16 mt-5 border-orange-600'></p>
+                    <h1 className='text-3xl text-orange-600 mt-10 font-bold lg:ms-16 ms-8'>All Reviews About The Service</h1>
+                    <p className='border-b-2 w-3/4 lg:ms-16 ms-8 mt-5 border-orange-600'></p>
                     <div>
                         {
                             serviceReview.map(review => <SingleReview

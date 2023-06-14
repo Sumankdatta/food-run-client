@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import signup from '../../assets/signup.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useShowPassword from '../../Shared/Hooks/useShowPassword';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-hot-toast';
@@ -14,7 +14,9 @@ const Signup = () => {
     const { createUser, ProfileUpdate, googleLogin } = useContext(AuthContext);
     const [accept, setAccept] = useState(false)
     const [error, setError] = useState('')
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     useTitle('Sign up')
 
     const googleProvider = new GoogleAuthProvider()
@@ -40,7 +42,8 @@ const Signup = () => {
                 handleUpdateProfile(name, url)
                 toast.success('User Create Successfully')
                 form.reset()
-                navigate('/')
+                navigate(from, { replace: true })
+
 
             })
             .catch(error => {
@@ -56,6 +59,8 @@ const Signup = () => {
 
         }
         ProfileUpdate(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
     const handleGoogleLogin = () => {

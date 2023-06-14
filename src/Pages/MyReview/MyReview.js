@@ -32,6 +32,7 @@ const MyReview = () => {
                         logOut()
                         navigate('/login')
                     }
+
                     return res.json()
                 })
                 .then(data => {

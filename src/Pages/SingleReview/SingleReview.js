@@ -3,7 +3,7 @@ import React from 'react';
 const SingleReview = ({ review }) => {
 
     return (
-        <div className='border border-blue-800 my-5 py-5 rounded-lg mx-16 '>
+        <div className='border border-blue-800 my-5 py-5 rounded-lg mx-8 '>
             <div>
                 <p className='ms-5 text-xl'>{review.message}</p>
                 <div className='flex items-center ms-5 mt-5'>

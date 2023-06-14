@@ -12,7 +12,6 @@ import MyReview from "../Pages/MyReview/MyReview";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
 import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
-// import ServiceDetails from "../Pages/Home/ServiceDetails/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -59,13 +58,13 @@ export const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 loader: ({ params }) => fetch(`https://food-run-server-sumankdatta.vercel.app/service/${params.id}`),
-                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+                element: <ServiceDetails></ServiceDetails>
 
             },
             {
                 path: '/myReview/:id',
                 loader: ({ params }) => fetch(`https://food-run-server-sumankdatta.vercel.app/review/${params.id}`),
-                element: <MyReview></MyReview>
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path: '/update/:id',
